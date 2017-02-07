@@ -30,7 +30,7 @@ class Grupo
     private $aula;
 
     /**
-     * @ORM\Column(type="integer")
+     * @ORM\Column(type="integer", unique=true)
      * @var int
      */
     private $planta;
