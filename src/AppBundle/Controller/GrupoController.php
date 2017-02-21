@@ -34,6 +34,7 @@ class GrupoController extends Controller
         ]);
     }
 
+
     /**
      * @Route("/grupos/modificar/{descripcion}", name="modificar_grupo")
      */

@@ -5,22 +5,24 @@
     <div class="table-responsive">
         <table class="table table-bordered table-striped table-hover">
             <thead>
-                <th class="col-sm-2">Grupo</th>
-                <th class="col-sm-2">Aula</th>
-                <th class="col-sm-2">Nº de alumnos</th>
-                <th class="col-sm-5">Tutor del grupo</th>
-                <th class="col-sm-1"></th>
+                <tr>
+                    <th class="col-sm-2">Grupo</th>
+                    <th class="col-sm-2">Aula</th>
+                    <th class="col-sm-2">Nº de alumnos</th>
+                    <th class="col-sm-5">Tutor del grupo</th>
+                    <th class="col-sm-1"></th>
+                </tr>
             </thead>
             <tbody>
             {% for grupo in grupos %}
                 <tr>
                     <td>
-                        <input type="checkbox" name="pepito[]" value="{{ grupo[0].id }}">
+                        <input title="Marcar para borrar" type="checkbox" name="pepito[]" value="{{ grupo[0].id }}">
                         {{ grupo[0].descripcion }}</td>
                     <td>{{ grupo[0].aula }}</td>
                     <td>{{ grupo[1] }}</td>
                     <td>{{ grupo[0].tutor }}</td>
-                    <td>
+                    <td class="text-center">
                         <a href="{{ path('modificar_grupo', {'descripcion' : grupo[0].descripcion}) }}" class="btn btn-xs btn-info" title="Modificar"><i class="fa fa-pencil"></i></a>
                         <a href="" class="btn btn-xs btn-danger" title="Borrar"><i class="fa fa-trash"></i></a>
                     </td>

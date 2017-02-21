@@ -19,7 +19,9 @@ class GrupoType extends AbstractType
                 'label' => 'Descripción del aula'
             ])
             ->add('aula', TextType::class)
-            ->add('planta', IntegerType::class)
+            ->add('planta', IntegerType::class, [
+                'required' => false
+            ])
             ->add('tutor', null, [
                     'placeholder' => 'No hay ninguno asignado',
                     'expanded' => false
