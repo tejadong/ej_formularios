@@ -18,7 +18,10 @@ class AlumnoType extends AbstractType
             ->add('grupo', null)
             ->add('nombre', TextType::class)
             ->add('apellidos', TextType::class)
-            ->add('fechaNacimiento', null)
+            ->add('fechaNacimiento', null, [
+                'widget' => 'choice', // single_text
+                'format' => 'dd-MM-yyyy'
+            ])
             ->add('observaciones', TextareaType::class, [
                 'required' => false
             ]);
