@@ -67,4 +67,35 @@ class AlumnoController extends Controller
         ]);
     }
 
+    /**
+     * @Route("/alumnos/eliminar/{id}", name="borrar_alumnado", methods={"GET"})
+     */
+    public function borrarAlumnoAction(Alumno $alumno)
+    {
+        return $this->render('alumno/borrar.html.twig', [
+            'alumno' => $alumno
+        ]);
+    }
+
+    /**
+     * @Route("/alumnos/eliminar/{id}", name="confirmar_borrar_alumno", methods={"POST"})
+     */
+    public function borrarAlumnoDeVerdadAction(Alumno $alumno)
+    {
+        /** @var EntityManager $em */
+        $em = $this->getDoctrine()->getManager();
+
+        try {
+            foreach ($alumno->getPartes() as $parte) {
+                $em->remove($parte);
+            }
+            $em->remove($alumno);
+            $em->flush();
+            $this->addFlash('estado', 'Alumno eliminado con éxito');
+        } catch (\Exception $e) {
+            $this->addFlash('error', 'No se han podido eliminar.');
+        }
+
+        return $this->redirectToRoute('listar_alumnos');
+    }
 }

@@ -23,7 +23,7 @@
                     <td>{{ alumno.observaciones }}</td>
                     <td class="text-center">
                         <a href="{{ path('modificar_alumno', {'id' : alumno.id}) }}" class="btn btn-xs btn-info" title="Modificar"><i class="fa fa-pencil"></i></a>
-                        <a href="" class="btn btn-xs btn-danger" title="Borrar"><i class="fa fa-trash"></i></a>
+                        <a href="{{ path('borrar_alumnado', {'id' : alumno.id}) }}" class="btn btn-xs btn-danger" title="Borrar"><i class="fa fa-trash"></i></a>
                     </td>
                 </tr>
             {% endfor %}
